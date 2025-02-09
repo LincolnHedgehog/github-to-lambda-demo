@@ -6,14 +6,10 @@ phases:
       python: 3.13
     commands:
       - echo "Installing dependencies..."
-      - pip install -r requirements.txt -t lib
 
   build:
     commands:
       - echo "Building the Lambda function..."
-      - cd lib
-      - zip -r9 ../deployment_package.zip .
-      - cd ..
       - zip -g deployment_package.zip lambda_function.py
 
   post_build:
